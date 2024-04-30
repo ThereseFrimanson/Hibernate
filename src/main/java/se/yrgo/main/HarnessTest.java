@@ -8,7 +8,7 @@ import se.yrgo.domain.Author;
 import se.yrgo.domain.Book;
 
 import java.util.List;
-import java.util.Set;
+// import java.util.Set;
 
 public class HarnessTest {
     private static SessionFactory sessionFactory = null;
@@ -28,13 +28,14 @@ public class HarnessTest {
         author.addBookToBookCollection(book1);
         author.addBookToBookCollection(book2);
         author.addBookToBookCollection(book3);
+
         session.save(book1);
         session.save(book2);
         session.save(book3);
         session.save(author);
 
         // Retrieve the author from the database
-        Author author_from_database = session.get(Author.class, 44);
+        Author author_from_database = session.get(Author.class, 2);
         System.out.println(author_from_database);
         // Set<Book> books = author_from_database.getBookCollection();
         List<Book> books = author_from_database.getBookCollection();
